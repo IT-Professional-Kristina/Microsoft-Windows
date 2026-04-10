@@ -1,0 +1,30 @@
+A. Core Languages used in Windows
+  1. C (foundation layer)
+    a. The Windows kernel and low-level components are largely written in C
+    b. C is used because it provides 
+      a. Direct memory access
+      b. Fine-grained hardware control
+      c. High Performance
+  2. C++ (major system components)
+    a. large part of Windows are written in C++
+    b. Used for:
+      a. System libraries
+      b. File systems
+      c. UI frameworks
+      d. core services
+  3. Assembly language (hardware-level code)
+    a. used in very small but critical sections 
+      a. boot loaders 
+      b. context switching
+      c. cpu-specific routines
+  4. C# (higher-level features)
+    a. used in more modern parts of Windows 
+      a. some system tools
+      b. UI components
+      c. Applications and services
+    b. closely tied to the .NET framework
+* Takeaway how it fits together
+  + Hardware Layer - assembly
+  + Kernel Layer - C
+  + System Layer - C++ 
+  + Application/UI layer - C# (and others)
