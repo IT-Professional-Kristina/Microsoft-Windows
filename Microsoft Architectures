@@ -1,0 +1,79 @@
+1. Microsoft Software & Platform Architecture
+  a. Core Framework: .NET Ecosystem
+    b. Built around .NET
+      c. Supports multiple languages
+        d. C#, F#, VB.NET
+  b. Architectural Styles
+    a. Monolithic architecture (older enterprise apps)
+    b. Layered (N-tier) architecture
+      a. Presentation Layer
+      b. Business Logic Layer
+      c. Data access layer
+  c. Microservices architecture
+    a. decoupled services communication via APIs
+    b. Often deployed in containers
+2. Microsoft Cloud Architecture (Azure)
+    a. Core Architectural Model
+      a. Distributed systems
+      b. Elastic scalability 
+      c. High availability (multi-region design)
+    b. Key components
+      a. Compute
+        a. Virtual Machines (IaaS)
+        b. Azure kubernetes Service (AKS)
+        c. Serverless: 
+          Azure Fucntions
+      b. Storage
+        a. Blob storage(unstructured data)
+        b. SQL Databae (managed relational DB)
+        c. Cosmos DB (NoSQL, globally distributed)
+      c. Networking
+        a. Virtual Networks (VNets)
+        b. Load Balancers
+        c. API Gateways
+      d. Identity & Security
+        a. Azure Active Directory (now Entra ID)
+        b. Role-based access control (RBAC)
+    a. Cloud Architecture Patterns (Azure-focused)
+      a. Microservices + Containers
+      b. Event-driven architecture
+      c. Serverless architecture
+      d. Hybrid architecture
+        a. On-prem + Cloud via Azure Arc
+3. Microsoft System/OS Architecture
+  Windows Architecture
+    - Based on Windows NT Kernel
+  I. Key Layers
+    a. User Mode
+      a. Applications
+      b. Subsystems (Win32, etc)
+    b. Kernel Mode
+      a. Executive services
+      b. Memory manager
+      c. Scheduler
+      d. Device drivers
+    * This seperation improves: stability, security, and fault isolation
+4. Xbox System Architecture (Gaming)
+  a. Custom AMD-based SoCs (CPU + GPU integration)
+  b. Shared memory architecture (GDDR)
+  c. Optimized OS derived from Windows core
+  d. DirectX graphics pipline
+5. Enterprise Architecture Frameworks
+I. Microsoft Application Architecture Guide
+  a. Design principles (seperation of concerns, SOLID)
+  b. DevOps integraion
+  c. Security-first design
+II. Integration with Industry Frameworks
+  a. TOGAF (enterprise architecture)
+  b. Cloud Adoption Framework (CAF)
+*Across all domains: 
+  a. Scalability - cloud-native design
+  b. Modularity - microservices & APIs
+  c. Security - zero trust model
+  d. Interoperability - cross-platform (.NET Core, REST APIs)
+  e. DevOps - CI/CD pipelines (Azure DevOps, GitHub)
+* Takeaway Microsoft archtitecture is not a single system- its a stacked ecosystem
+  a. .NET + ASP.NET - application architecture
+  b. Azure - cloud/distributed architecture
+  c. Windows NT - operating system foundation
+  d. Xbox + Surface - hardware-integrated systems
