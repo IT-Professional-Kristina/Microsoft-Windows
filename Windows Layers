@@ -1,0 +1,87 @@
+1. Hardware Layer (Assembly + Firmware)
+  a. what it includes
+    a. CPU (x86-64, ARM
+    b. RAM
+    c. Disk controllers
+    d. GPUs
+    e. Motherboard firmaware(BIOS/UEFI)
+  b. languages used
+    a. Assembly (critical paths only)
+    b. some compiler intrinsics inside C/C++
+  c. What windows actually does here
+    a. bootstrapping (via bootloader)
+    b. Interrupt handling
+    c. context switching (CPU state changes)
+    d. direct hardware access (through HAL)
+  d. Key component
+    a. HAL (Hardware Abstraction Layer)
+      a. written mostly in C with assembly
+      b. hides hardware differences from the kernel
+2. Kernel Layer (C, some Assembly)
+  a. Key responsibilities
+    a. process and thread scheduling
+    b. memory management (virtual memory, paging)
+    c. interrupt handling
+    d. synchronization (locks, semaphores)
+3. System Layer (C/C++) - Executive + Drivers
+  I. Executive services (Kernel-mode but above core kernel) 
+    A. Components
+      a. Object Manager
+      b. Security Reference Monitor
+      c. Process Manager
+      d. Plug and Play Manager
+      e. Power Manager
+  II. Device Drivers
+    A. What they do
+      a. Interface with hardware(GPU, disk, USB, network)
+    B. Types
+      a. Kernel-mode drivers(fast, risky)
+      b. User-mode drivers(safer, slower)
+    c. Languages
+      a. C and C++
+  III. System Libraries
+    * These are critical APIs exposed to applications
+      a. ntdll.dll(low-level interface to kernel)
+      b. kernel32.dll(core OS functions)
+      c. user32.dll (windows system)
+      d. gdi32.dll(graphics)
+4. Application /UI Layer (C++, C#, others)
+  * This is what developers and users interact with.
+    A. Native Applications
+      a. written in C/C++ 
+      b. use Win32 API directly
+      c. Examples: system utilities, legacy apps
+    B. Managed Applications (.NET)
+      a. written in C#
+      b. Run on .NET runtime (CLR)
+    * What happens under the hood
+      - C# - intermediate Language(IL)
+      - IL - JIT compiled - machine code
+    C. Modern UI Frameworks
+      a. WinUI/UWP
+      b. WPF (C# + XAML)
+How the Layers interact (Real Flow)
+  Example: Opening a file
+    a. App(C# or C++) calls API (CreateFile)
+    b. Win32 API - kernel32.dll
+    c. Transition to ntdll.dll
+    d. System call into kernel
+    e. I/O Manager processess request
+    d. Device driver talks to disk
+    f. Data returns up the stack
+
+
+  User Mode
+├── Applications (C#, C++, etc.)
+├── .NET CLR
+├── Win32 API (kernel32, user32, etc.)
+└── ntdll.dll (system call interface)
+
+Kernel Mode
+├── Executive (object manager, security, I/O)
+├── Kernel (scheduler, memory manager)
+├── Device Drivers
+└── HAL (hardware abstraction)
+
+Hardware
+
